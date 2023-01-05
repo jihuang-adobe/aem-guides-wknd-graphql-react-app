@@ -13,6 +13,7 @@ import AEMHeadless from "@adobe/aem-headless-client-js";
 // environment variable for configuring the headless client
 const {
   REACT_APP_HOST_URI,
+  REACT_APP_AEM_URI,
   REACT_APP_GRAPHQL_ENDPOINT,
   REACT_APP_USE_PROXY,
   REACT_APP_AUTH_METHOD,
@@ -44,6 +45,9 @@ const aemHeadlessClient = new AEMHeadless({
   serviceURL: serviceURL,
   endpoint: REACT_APP_GRAPHQL_ENDPOINT,
   auth: setAuthorization(),
+  headers: {
+    "aem-url": REACT_APP_AEM_URI,
+  },
 });
 
 export default aemHeadlessClient;
